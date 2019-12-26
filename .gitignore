@@ -33,3 +33,7 @@ packages/react-devtools-extensions/firefox/*.pem
 packages/react-devtools-extensions/shared/build
 packages/react-devtools-inline/dist
 packages/react-devtools-shell/dist
+.vs/VSWorkspaceState.json
+.vs/dividendalert-react/v16/.suo
+.vs/slnx.sqlite
+.vs/ProjectSettings.json
