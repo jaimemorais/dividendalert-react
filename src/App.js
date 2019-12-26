@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import DividendAlertMenu from './DividendAlertMenu'
+import DividendAlertMenu from './components/DividendAlertMenu'
 
 function App() {
   return (
     <div className="App">
       <header >
         <p>
-          Dividend Alert React
+          Dividend Alert
         </p>        
       </header>
       
