@@ -1,5 +1,6 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
+import './DividendAlertMenu.css';
 
 class DividendAlertMenu extends React.Component {
   showSettings (event) {
@@ -7,13 +8,13 @@ class DividendAlertMenu extends React.Component {
   }
 
   render () {
-    // NOTE: You also need to provide styles, see https://github.com/negomi/react-burger-menu#styling
+    
     return (
 
-      <Menu>
-        <a id="stock-list" className="menu-item" href="/stocklist">My Stocks</a>
-        <a id="dividends" className="menu-item" href="/dividends">Dividends</a>        
-        <a onClick={ this.showSettings } className="menu-item--small" href="/settings">Settings</a>
+      <Menu width={ 200 } noOverlay={ true } >
+        <a id="stock-list" href="/stocklist">My Stocks</a>
+        <a id="dividends" href="/dividends">Dividends</a>        
+        <a onClick={ this.showSettings } href="/settings">Settings</a>
       </Menu>
 
     );

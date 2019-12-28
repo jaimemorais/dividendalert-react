@@ -4,11 +4,10 @@ import DividendAlertMenu from './components/DividendAlertMenu'
 
 function App() {
   return (
+    
     <div className="App" id="App-Container">
-
-      <DividendAlertMenu pageWrapId={ "page-wrap" } outerContainerId={ "App-Container" }  />
-
       <main id="page-wrap">      
+      <DividendAlertMenu pageWrapId={ "page-wrap" } outerContainerId={ "App-Container" }  />
         <header >
           <p>
             Dividend Alert
