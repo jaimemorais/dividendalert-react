@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  text-align: center;  
+  background-color: bisque;
+  height:100%;
 }
 
 .App-header {
@@ -15,4 +17,14 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.header {
+  background-color: #61dafb;
+  margin: 0;
+}
+
+.content {
+  background-color: paleturquoise;
+  height: 100%;  
 }
