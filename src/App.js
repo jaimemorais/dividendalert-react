@@ -6,21 +6,19 @@ function App() {
   return (
     
     <div className="App" id="App-Container">
+         
+      <DividendAlertMenu />
+
+      <header className="App-header">        
+          Dividend Alert - Title        
+      </header>    
       
-      <div id="page-wrap">      
-        <DividendAlertMenu pageWrapId={ "page-wrap" } outerContainerId={ "App-Container" }  />
-        <header className="header">
-          <h3>
-            Dividend Alert
-          </h3>        
-        </header>    
-        
-        <div id="content" className="content">
-          <p>teste</p>
-        </div>
-        
-      </div>      
-      
+      <div id="content" className="content">
+        <p>Content</p>
+        <p>Content</p>
+        <p>Content</p>
+        <p>Content</p>
+      </div>
 
     </div>
   );
