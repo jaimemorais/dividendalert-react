@@ -1,20 +1,24 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import './DividendAlertMenu.css';
+import {
+  HashRouter,  
+  NavLink
+} from "react-router-dom";
 
 class DividendAlertMenu extends React.Component {
-  showSettings (event) {
-    event.preventDefault();    
-  }
-
   render () {
     
     return (
-
+      
       <Menu width={ 200 } noOverlay={ true } >
-        <a id="stock-list" href="/stocklist">My Stocks</a>
-        <a id="dividends" href="/dividends">Dividends</a>        
-        <a onClick={ this.showSettings } href="/settings">Settings</a>
+        <HashRouter>
+          <NavLink to="/">Home</NavLink>
+          <br/>
+          <NavLink to="/mystocks">My Stocks</NavLink>
+          <br/>
+          <NavLink to="/dividends">Dividends</NavLink>  
+        </HashRouter>
       </Menu>
 
     );
