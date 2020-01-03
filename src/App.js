@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import DividendAlertMenu from './components/DividendAlertMenu'
+import Home from './components/Home'
 import MyStocks from './components/MyStocks'
 import Dividends from './components/Dividends'
 import {  
@@ -33,10 +34,6 @@ function App() {
 
     </div>
   );
-}
-
-function Home() {
-  return <h2>Home component</h2>;
 }
 
 
