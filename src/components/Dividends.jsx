@@ -25,7 +25,7 @@ class Dividends extends React.Component {
 
   fetchDividends() {
     this.setState({...this.state, isFetching: true});
-    console.log('url api : ' + process.env.REACT_APP_DIVIDENDALERT_API_URL);
+    
     fetch(process.env.REACT_APP_DIVIDENDALERT_API_URL)
     .then(res => res.json())
     .then((data) => {
