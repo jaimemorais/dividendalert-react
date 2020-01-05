@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+  Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 
 class Dividends extends React.Component {
   
@@ -43,11 +47,18 @@ class Dividends extends React.Component {
     
     return (
       <div>
-      <p>Next Dividends</p>
+        <p>Next Dividends</p>
 
         {this.state.dividends.map((dividend) => (
-          <div>            
-              <h5>{dividend.stockName} - {dividend.type} - {dividend.paymentDate} - {dividend.value}</h5>            
+          
+          <div>
+            <Card>              
+              <CardBody>
+                <CardTitle>{dividend.stockName}</CardTitle>
+                <CardSubtitle>{dividend.type}</CardSubtitle>
+                <CardText>{dividend.value} - {dividend.paymentDate}</CardText>                
+              </CardBody>
+            </Card>
           </div>
         ))}
       </div>
