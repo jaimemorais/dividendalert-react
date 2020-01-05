@@ -10,32 +10,26 @@ import {
   HashRouter
 } from "react-router-dom";
 
-function App() {
-  
-  return (
-    
-    <div className="App" id="App-Container">
-      
-      <header className="App-header">        
-          Dividend Alert - Title        
-      </header>    
 
-      <DividendAlertMenu />
+export default () => (
+  <div className="App" id="App-Container">
+        
+    <header className="App-header">        
+        Dividend Alert - Title        
+    </header>    
+
+    <DividendAlertMenu />
 
 
-      <div id="content" className="content">
-        <HashRouter>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/mystocks' component={MyStocks} />
-            <Route path='/dividends' component={Dividends} />
-          </Switch>
-        </HashRouter>
-      </div>
-
+    <div id="content" className="content">
+      <HashRouter>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/mystocks' component={MyStocks} />
+          <Route path='/dividends' component={Dividends} />
+        </Switch>
+      </HashRouter>
     </div>
-  );
-}
 
-
-export default App;
+  </div>
+);
