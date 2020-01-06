@@ -31,11 +31,11 @@ class Dividends extends React.Component {
     this.setState({...this.state, isFetching: true});
     
     fetch(process.env.REACT_APP_DIVIDENDALERT_API_URL)
-    .then(res => res.json())
-    .then((data) => {
-      this.setState({ dividends: data })
-    })
-    .catch(console.log)
+      .then(res => res.json())
+      .then((data) => {
+        this.setState({ dividends: data })
+      })
+      .catch(console.log)
 
     this.setState({...this.state, isFetching: false});
     
@@ -44,25 +44,32 @@ class Dividends extends React.Component {
 
 
   render () {
-    
-    return (
-      <div>
-        <p>Next Dividends</p>
 
-        {this.state.dividends.map((dividend) => (
-          
-          <div>
-            <Card>              
-              <CardBody>
-                <CardTitle>{dividend.stockName}</CardTitle>
-                <CardSubtitle>{dividend.type}</CardSubtitle>
-                <CardText>{dividend.value} - {dividend.paymentDate}</CardText>                
-              </CardBody>
-            </Card>
-          </div>
-        ))}
-      </div>
-    );
+    if (this.state.isFetching) {
+      return (
+        <div>
+          <p>Loading...</p>
+        </div>
+      );
+    }
+    else {
+      return (
+        <div>
+          <p>Next Dividends</p>
+          {this.state.dividends.map((dividend) => (            
+            <div>
+              <Card>              
+                <CardBody>
+                  <CardTitle>{dividend.stockName}</CardTitle>
+                  <CardSubtitle>{dividend.type}</CardSubtitle>
+                  <CardText>{dividend.value} - {dividend.paymentDate}</CardText>                
+                </CardBody>
+              </Card>
+            </div>
+          ))}
+        </div>
+      );
+    }
   }
 }
 
