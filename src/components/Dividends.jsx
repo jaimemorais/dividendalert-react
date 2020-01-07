@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
+  Card, CardText, CardBody,
+  CardTitle, CardSubtitle
 } from 'reactstrap';
 
 class Dividends extends React.Component {
@@ -37,9 +37,7 @@ class Dividends extends React.Component {
       })
       .catch(console.log)
 
-    this.setState({...this.state, isFetching: false});
-    
-    // TODO error handling       
+    this.setState({...this.state, isFetching: false});    
    }
 
 
@@ -57,7 +55,7 @@ class Dividends extends React.Component {
         <div>
           <p>Next Dividends</p>
           {this.state.dividends.map((dividend) => (            
-            <div>
+            <div key={dividend.id}>
               <Card>              
                 <CardBody>
                   <CardTitle>{dividend.stockName}</CardTitle>
