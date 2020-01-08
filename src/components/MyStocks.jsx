@@ -1,5 +1,6 @@
 import React from 'react';
 import SelectStock from './SelectStock'
+import Login from './Login'
 
 class MyStocks extends React.Component {
   render () {
