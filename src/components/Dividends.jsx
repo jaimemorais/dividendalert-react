@@ -3,6 +3,7 @@ import {
   Card, CardText, CardBody,
   CardTitle, CardSubtitle
 } from 'reactstrap';
+import dividendAlertApiService from "../services/dividendAlertApiService"
 
 class Dividends extends React.Component {
   
@@ -29,12 +30,10 @@ class Dividends extends React.Component {
 
   fetchDividends() {
     this.setState({...this.state, isFetching: true});
-    
-    // TODO use apiService.js
-    fetch(process.env.REACT_APP_DIVIDENDALERT_API_URL)
-      .then(res => res.json())
-      .then((data) => {
-        this.setState({ dividends: data })
+        
+    dividendAlertApiService.get(process.env.REACT_APP_DIVIDENDALERT_NEXT_DIVIDENDS_ENPOINT)
+      .then(result => {
+        this.setState({ dividends: result.data })
       })
       .catch(console.log)
 
