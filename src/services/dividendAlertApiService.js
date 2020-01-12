@@ -5,6 +5,7 @@ const dividendAlertApiService = axios.create({
   baseURL: process.env.REACT_APP_DIVIDENDALERT_API_BASE_URL
 });
 
+
 dividendAlertApiService.interceptors.request.use(async config => {
   const token = getToken();
   if (token) {
