@@ -1,23 +1,62 @@
-import React from 'react';
-import {
-    Button
-  } from 'reactstrap';
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 
-class Login extends React.Component {
-  render () {
-    
+import dividendAlertApi from "../services/dividendAlertApiService";
+import { login } from "../services/authService";
+
+import { Form, Container } from "./LoginStyledComponents";
+
+class Login extends Component {
+  state = {
+    email: "",
+    password: "",
+    error: ""
+  };
+
+  handleSignIn = async e => {
+    e.preventDefault();
+    const { email, password } = this.state;
+    if (!email || !password) {
+      this.setState({ error: "Fill e-mail and password fields!" });
+    } else {
+      try {
+        const response = await dividendAlertApi.post("/users/login", { email, password });
+
+        // TODO read the user.JwtToken here
+
+        login(response.data.token);
+        this.props.history.push("/app");
+      } catch (err) {
+        this.setState({
+          error:
+            "Login error. Check your credentials."
+        });
+      }
+    }
+  };
+
+  render() {
     return (
-      <div>
-        <p>Login</p>
-        <input type="text" id="login" />
-        <p>Password</p>
-        <input type="text" id="password" />
-
-        <br/>
-        <Button>Login</Button>
-      </div>
+      <Container>
+        <Form onSubmit={this.handleSignIn}>          
+          {this.state.error && <p>{this.state.error}</p>}
+          <input
+            type="email"
+            placeholder="E-mail"
+            onChange={e => this.setState({ email: e.target.value })}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={e => this.setState({ password: e.target.value })}
+          />
+          <button type="submit">Login</button>
+          <hr />
+          <Link to="/signup">Sign Up</Link>
+        </Form>
+      </Container>
     );
   }
 }
 
-export default Login;
+export default withRouter(Login);
