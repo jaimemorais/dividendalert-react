@@ -6,7 +6,7 @@ import Dividends from '../components/Dividends'
 import Login from '../components/Login'
 import Home from '../components/Home'
 
-import { isAuthenticated } from "./authService";
+import { isAuthenticated } from "./dividendAlertAuthService";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route

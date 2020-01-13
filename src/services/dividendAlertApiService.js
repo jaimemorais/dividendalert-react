@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getToken } from "./authService";
+import { getToken } from "./dividendAlertAuthService";
 
 const dividendAlertApiService = axios.create({
   baseURL: process.env.REACT_APP_DIVIDENDALERT_API_BASE_URL
