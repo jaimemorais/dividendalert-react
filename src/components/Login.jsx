@@ -19,13 +19,13 @@ class Login extends Component {
     if (!email || !password) {
       this.setState({ error: "Fill e-mail and password fields!" });
     } else {
-      try {
 
+      try {
         var bodyFormData = new FormData();
         bodyFormData.set('email', email);
         bodyFormData.set('pwd', password);
 
-        const response = await dividendAlertApi.post("/users/login", bodyFormData);
+        const response = await dividendAlertApi.post(process.env.REACT_APP_DIVIDENDALERT_LOGIN_ENPOINT, bodyFormData);
 
         // TODO read the user.JwtToken here
         console.log(response);        
@@ -35,11 +35,14 @@ class Login extends Component {
         login(response.data.token);
         this.props.history.push("/app");
       } catch (err) {
-        this.setState({
-          error:
-            "Login error. Check your credentials. -- Backend message  : " + err
-        });
+        if (err.response.status == 401) {
+          this.setState({ error: "Invalid credentials."});
+        }
+        else {
+          this.setState({ error: "Server Error. Message  : " + err});
+        }        
       }
+      
     }
   };
 
