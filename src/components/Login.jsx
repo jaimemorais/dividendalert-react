@@ -21,10 +21,11 @@ class Login extends Component {
     } else {
 
       try {
+
+        // login post
         var bodyFormData = new FormData();
         bodyFormData.set('email', email);
         bodyFormData.set('pwd', password);
-
         const response = await dividendAlertApi.post(process.env.REACT_APP_DIVIDENDALERT_LOGIN_ENPOINT, bodyFormData);
 
         // TODO read the user.JwtToken here
@@ -42,7 +43,7 @@ class Login extends Component {
           this.setState({ error: "Server Error. Message  : " + err});
         }        
       }
-      
+
     }
   };
 
