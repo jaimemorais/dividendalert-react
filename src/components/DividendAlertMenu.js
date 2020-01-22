@@ -1,5 +1,5 @@
 import React from 'react';
-import { slide as Menu } from 'react-burger-menu';
+import { slide as MenuSlide } from 'react-burger-menu';
 import './DividendAlertMenu.css';
 import {
   HashRouter,  
@@ -11,7 +11,7 @@ class DividendAlertMenu extends React.Component {
     
     return (
       
-      <Menu width={ 200 } noOverlay={ true } >
+      <MenuSlide width={ 200 } noOverlay={ true } >
         <HashRouter>
           <NavLink to="/">Home</NavLink>
           <br/>
@@ -19,7 +19,7 @@ class DividendAlertMenu extends React.Component {
           <br/>
           <NavLink to="/dividends">Dividends</NavLink>  
         </HashRouter>
-      </Menu>
+      </MenuSlide>
 
     );
   }
