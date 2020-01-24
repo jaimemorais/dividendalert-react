@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  Card, CardText, CardBody,
-  CardTitle, CardSubtitle
-} from 'reactstrap';
+import { Card, CardText, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
 import dividendAlertApiService from "../services/dividendAlertApiService"
 
 class Dividends extends React.Component {
