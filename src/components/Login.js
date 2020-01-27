@@ -36,7 +36,7 @@ class Login extends Component {
         login(response.data.token);
         this.props.history.push("/app");
       } catch (err) {
-        if (err.response.status == 401) {
+        if (err.response.status === 401) {
           this.setState({ error: "Invalid credentials."});
         }
         else {
