@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardText, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
+import { Card } from 'react-bootstrap';
 import dividendAlertApiService from "../services/dividendAlertApiService"
 
 class Dividends extends React.Component {
@@ -54,11 +54,11 @@ class Dividends extends React.Component {
           {this.state.dividends.map((dividend) => (            
             <div key={dividend.id}>
               <Card>              
-                <CardBody>
-                  <CardTitle>{dividend.stockName}</CardTitle>
-                  <CardSubtitle>{dividend.type}</CardSubtitle>
-                  <CardText>{dividend.value} - {dividend.paymentDate}</CardText>                
-                </CardBody>
+                <Card.Body>
+                  <Card.Title>{dividend.stockName}</Card.Title>
+                  <Card.Subtitle>{dividend.type}</Card.Subtitle>
+                  <Card.Text>{dividend.value} - {dividend.paymentDate}</Card.Text>                
+                </Card.Body>
               </Card>
             </div>
           ))}
