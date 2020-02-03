@@ -50,14 +50,21 @@ class Dividends extends React.Component {
     else {
       return (
         <div>
-          <p>Next Dividends</p>
+          
+          <h2 className="my-2">Your Next Dividends</h2>
+
           {this.state.dividends.map((dividend) => (            
             <div key={dividend.id}>
-              <Card>              
-                <Card.Body>
-                  <Card.Title>{dividend.stockName}</Card.Title>
-                  <Card.Subtitle>{dividend.type}</Card.Subtitle>
-                  <Card.Text>{dividend.value} - {dividend.paymentDate}</Card.Text>                
+              <Card bg="info" text="white" style={{ width: '23rem' }} className="mx-auto my-1 text-left">              
+                <Card.Header className="font-weight-bold">
+                  {dividend.stockName}
+                </Card.Header>
+                <Card.Body>                                    
+                    <Card.Text>
+                      <span className="font-weight-bold">{dividend.type}</span> <br/>
+                      Value : {dividend.value} <br/> 
+                      Payment Date : {dividend.paymentDate}
+                    </Card.Text>                
                 </Card.Body>
               </Card>
             </div>
