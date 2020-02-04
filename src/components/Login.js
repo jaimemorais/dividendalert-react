@@ -26,7 +26,7 @@ class Login extends Component {
         var bodyFormData = new FormData();
         bodyFormData.set('email', email);
         bodyFormData.set('pwd', password);
-        const response = await dividendAlertApi.post(process.env.REACT_APP_DIVIDENDALERT_LOGIN_ENPOINT, bodyFormData);
+        const response = await dividendAlertApi.post(process.env.REACT_APP_DIVIDENDALERT_ENDPOINT_LOGIN, bodyFormData);
 
         // TODO read the user.JwtToken here
         console.log(response);        

@@ -28,7 +28,7 @@ class Dividends extends React.Component {
   fetchDividends() {
     this.setState({...this.state, isFetching: true});
         
-    dividendAlertApiService.get(process.env.REACT_APP_DIVIDENDALERT_NEXT_DIVIDENDS_ENPOINT)
+    dividendAlertApiService.get(process.env.REACT_APP_DIVIDENDALERT_ENDPOINT_NEXT_DIVIDENDS)
       .then(result => {
         this.setState({ dividends: result.data })
       })
