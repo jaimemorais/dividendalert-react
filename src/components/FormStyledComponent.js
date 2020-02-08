@@ -1,12 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-`;
-
 export const Form = styled.form`
   width: 400px;
   background: #fff;
@@ -27,7 +20,7 @@ export const Form = styled.form`
     text-align: center;
   }
   input {
-    flex: 1;
+    display: flex;
     height: 46px;
     margin-bottom: 15px;
     padding: 0 20px;

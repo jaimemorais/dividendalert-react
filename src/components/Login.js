@@ -4,7 +4,8 @@ import { Link, withRouter } from "react-router-dom";
 import dividendAlertApi from "../services/dividendAlertApiService";
 import { login } from "../services/dividendAlertAuthService";
 
-import { Form, Container } from "./LoginStyledComponents";
+import { Form } from "./FormStyledComponent";
+import { Container } from "./ContainerStyledComponent";
 
 class Login extends Component {
   state = {
