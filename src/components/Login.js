@@ -27,20 +27,16 @@ class Login extends Component {
         bodyFormData.set('email', email);
         bodyFormData.set('pwd', password);
         const response = await dividendAlertApi.post(process.env.REACT_APP_DIVIDENDALERT_ENDPOINT_LOGIN, bodyFormData);
-
-        // TODO read the user.JwtToken here
-        console.log(response);        
-        console.log(JSON.parse(response.data));
         
+        login(response.data.jwtToken);
 
-        login(response.data.token);
-        this.props.history.push("/app");
+        this.props.history.push("/mystocks");
       } catch (err) {
-        if (err.response.status === 401) {
+        if (err.response != null && err.response.status === 401) {
           this.setState({ error: "Invalid credentials."});
         }
         else {
-          this.setState({ error: "Server Error. Message  : " + err});
+          this.setState({ error: "Error : " + err});
         }        
       }
 
