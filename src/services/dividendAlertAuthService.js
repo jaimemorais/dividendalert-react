@@ -1,7 +1,7 @@
 
 export const TOKEN_KEY = "@dividend-alert-token";
 
-export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
+export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null && localStorage.getItem(TOKEN_KEY) !== '';
 
 export const getToken = () => localStorage.getItem(TOKEN_KEY);
 

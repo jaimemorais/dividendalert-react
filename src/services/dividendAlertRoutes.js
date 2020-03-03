@@ -27,7 +27,7 @@ const Routes = () => (
             <Route exact path="/" component={Home} />            
             <Route exact path="/login" component={Login} />            
             <PrivateRoute path='/mystocks' component={MyStocks} />
-            <Route path='/dividends' component={Dividends} />
+            <PrivateRoute path='/dividends' component={Dividends} />
             <Route path="*" component={() => <h1>Page not found</h1>} />
         </Switch>
     </HashRouter>
