@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/App.css';
-import DividendAlertMenu from './components/DividendAlertMenu'
+import DividendAlertMenu from './components/Menu'
 import Routes from './services/dividendAlertRoutes'
 import { isAuthenticated } from "./services/dividendAlertAuthService";
 
