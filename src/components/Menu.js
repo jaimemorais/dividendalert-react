@@ -3,13 +3,18 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { LinkContainer } from "react-router-bootstrap";
 import { HashRouter } from "react-router-dom";
 import { LogoutButton } from "./LogoutButton"
-import { isAuthenticated } from "../services/dividendAlertAuthService";
+import { useSelector } from "react-redux";
 
-class DividendAlertMenu extends React.Component {
 
-  
-  render () {
-    
+export default function DividendAlertMenu() {
+
+    const { authenticated } = useSelector(state => {
+      return {          
+          authenticated: state.userLoggedReducer.authenticated
+      };
+    });
+
+      
     return (
       <>                    
         <HashRouter>        
@@ -22,7 +27,7 @@ class DividendAlertMenu extends React.Component {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">    
                 
-                {!isAuthenticated() ? (
+                {!authenticated ? (
                   <LinkContainer to="/login">
                     <Nav.Link>Login</Nav.Link>
                   </LinkContainer>
@@ -37,7 +42,7 @@ class DividendAlertMenu extends React.Component {
                   <Nav.Link>Dividends</Nav.Link>
                 </LinkContainer>
                 
-                {isAuthenticated() ?
+                {authenticated ?
                   (<LogoutButton />) : null
                 }
 
@@ -48,7 +53,5 @@ class DividendAlertMenu extends React.Component {
         </HashRouter>
       </>
     );
-  }
-}
 
-export default DividendAlertMenu;
+}

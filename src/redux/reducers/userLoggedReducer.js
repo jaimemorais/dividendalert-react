@@ -6,14 +6,14 @@ const userLoggedReducer = (state = [], action) => {
         return [
           ...state,
           {
-            // todo logged = true; 
+            authenticated: true
           }
         ];
       case USER_LOGOUT:
         return [
             ...state,
             {
-              // todo logged = false; 
+              authenticated: false
             }
         ];
       default:
