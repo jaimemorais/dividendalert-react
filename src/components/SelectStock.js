@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactAutocomplete from 'react-autocomplete'
+//import ReactAutocomplete from 'react-autocomplete'
 
 class SelectStock extends React.Component {
 
@@ -13,7 +13,8 @@ class SelectStock extends React.Component {
 
   render() {
     return (
-      <ReactAutocomplete
+      <div>[SelectStock component here]</div>
+      /*<ReactAutocomplete
         items={[
           { id: 'foo', label: 'ITSA3' },
           { id: 'bar', label: 'WEGE3' },
@@ -32,7 +33,7 @@ class SelectStock extends React.Component {
         value={this.state.value}
         onChange={e => this.setState({ value: e.target.value })}
         onSelect={value => this.setState({ value })}
-      />
+      />*/
     )
   }
   

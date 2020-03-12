@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import dividendAlertApi from "../services/dividendAlertApiService";
-import { login } from "../services/dividendAlertAuthService";
+import { loginAuth } from "../services/dividendAlertAuthService";
 
 import { Form } from "./FormStyledComponent";
 import { Container } from "./ContainerStyledComponent";
@@ -34,7 +34,7 @@ export default function LoginForm() {
         bodyFormData.set('pwd', password);
         const response = await dividendAlertApi.post(process.env.REACT_APP_DIVIDENDALERT_ENDPOINT_LOGIN, bodyFormData);
         
-        login(response.data.jwtToken);
+        loginAuth(response.data.jwtToken);
 
         history.push("/mystocks");
       } catch (err) {
@@ -64,9 +64,8 @@ export default function LoginForm() {
           placeholder="Password"
           onChange={e => setPassword(e.target.value)}          
         />
-
-        <button type="submit">Login</button>        
-        {/* <LoginButton/> */}
+         
+        <LoginButton/> 
         
         <hr />
         <Link to="/signup">Sign Up</Link>
