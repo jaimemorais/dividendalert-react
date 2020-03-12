@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-import { LinkContainer } from "react-router-bootstrap";
-import { HashRouter } from "react-router-dom";
-import { LogoutButton } from "./LogoutButton"
-import { useSelector } from "react-redux";
+import { LinkContainer } from 'react-router-bootstrap';
+import { HashRouter } from 'react-router-dom';
+import { LogoutButton } from './LogoutButton'
+import { useSelector } from 'react-redux';
 import userLoggedReducer from '../redux/reducers/userLoggedReducer';
 
 
 export default function DividendAlertMenu() {
 
 
-  const { showLogoutButton } = useSelector(state => {
+  const { showLogoutButton } = useSelector(() => {
     return {
       showLogoutButton: userLoggedReducer.authenticated
     };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
-import { logoutAuth } from "../services/dividendAlertAuthService";
 import { useDispatch } from "react-redux";
+import { logoutAuth } from "../services/dividendAlertAuthService";
 import { logoutAction } from '../redux/actions';
 
 export const LogoutButton = () => {

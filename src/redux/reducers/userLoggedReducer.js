@@ -1,4 +1,4 @@
-import { USER_LOGIN, USER_LOGOUT } from "../actionTypes";
+import { USER_LOGIN, USER_LOGOUT } from '../actionTypes';
 
 const userLoggedReducer = (state = [], action) => {
     switch (action.type) {

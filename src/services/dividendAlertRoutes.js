@@ -1,5 +1,5 @@
-import React from "react";
-import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
+import React from 'react';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import MyStocks from '../components/MyStocks'
 import Dividends from '../components/Dividends'

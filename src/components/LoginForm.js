@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { Link, useHistory } from "react-router-dom";
-
-import dividendAlertApi from "../services/dividendAlertApiService";
-import { loginAuth } from "../services/dividendAlertAuthService";
-
-import { Form } from "./FormStyledComponent";
-import { Container } from "./ContainerStyledComponent";
-
-import { LoginButton } from "./LoginButton"
+import dividendAlertApi from '../services/dividendAlertApiService';
+import { loginAuth } from '../services/dividendAlertAuthService';
+import { Form } from './FormStyledComponent';
+import { Container } from './ContainerStyledComponent';
+import { LoginButton } from './LoginButton'
 
 
 export default function LoginForm() {
