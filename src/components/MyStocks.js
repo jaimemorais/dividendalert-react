@@ -1,8 +1,8 @@
 import React from 'react';
 import SelectStock from './SelectStock'
 
-class MyStocks extends React.Component {
-  render () {
+export default function MyStocks() {
+  
     
     return (
       <div>
@@ -13,7 +13,5 @@ class MyStocks extends React.Component {
         <SelectStock />
       </div>
     );
-  }
+  
 }
-
-export default MyStocks;
