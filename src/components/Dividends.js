@@ -1,78 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import dividendAlertApiService from "../services/dividendAlertApiService"
 
-class Dividends extends React.Component {
+export default function Dividends() {
   
+  const [isFetching, setIsFetching] = useState(false);
+  const [nextDividends, setNextDividends] = useState([]);
 
-  constructor(props) {
-    super(props);
+  useEffect(() => {
+    fetchDividends();
+    //this.timer = setInterval(() => this.fetchDividends(), 15000);
     
-    this.state = {
-        isFetching: false,
-        dividends: []
-    };
-  }
-
-  componentDidMount() {
-      this.fetchDividends();
-      this.timer = setInterval(() => this.fetchDividends(), 15000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timer);
-    this.timer = null;
-  }
+    // returned function will be called on component unmount     
+    return () => {
+      // clearInterval(this.timer);
+      // this.timer = null;
+    }
+  });
 
 
-  fetchDividends() {
-    this.setState({...this.state, isFetching: true});
+
+  function fetchDividends() {
+    setIsFetching(true);    
         
     dividendAlertApiService.get(process.env.REACT_APP_DIVIDENDALERT_ENDPOINT_NEXT_DIVIDENDS)
       .then(result => {
-        this.setState({ dividends: result.data })
+        setNextDividends(result.data)
       })
       .catch(console.log)
 
-    this.setState({...this.state, isFetching: false});    
-   }
-
-
-  render () {
-
-    if (this.state.isFetching) {
-      return (
-        <div>
-          <p>Loading...</p>
-        </div>
-      );
-    }
-    else {
-      return (
-        <div>
-          
-          <h2 className="my-2">Your Next Dividends</h2>
-
-          {this.state.dividends.map((dividend) => (            
-            <div key={dividend.id}>
-              <Card bg="info" text="white" style={{ width: '23rem' }} className="mx-auto my-1 text-left">              
-                <Card.Header className="font-weight-bold">
-                  {dividend.stockName}
-                </Card.Header>
-                <Card.Body>                                    
-                    <Card.Text>
-                      <span className="font-weight-bold">{dividend.type}</span> <br/>
-                      Value : {dividend.value} <br/> 
-                      Payment Date : {dividend.paymentDate}
-                    </Card.Text>                
-                </Card.Body>
-              </Card>
-            </div>
-          ))}
-        </div>
-      );
-    }
+    setIsFetching(false);
   }
-}
 
-export default Dividends;
+
+  return (  
+    <div>      
+      <h2 className="my-2">Your Next Dividends</h2>
+      {nextDividends.map((dividend) => (            
+        <div key={dividend.id}>
+          <Card bg="info" text="white" style={{ width: '23rem' }} className="mx-auto my-1 text-left">              
+            <Card.Header className="font-weight-bold">
+              {dividend.stockName}
+            </Card.Header>
+            <Card.Body>                                    
+                <Card.Text>
+                  <span className="font-weight-bold">{dividend.type}</span> <br/>
+                  Value : {dividend.value} <br/> 
+                  Payment Date : {dividend.paymentDate}
+                </Card.Text>                
+            </Card.Body>
+          </Card>
+        </div>
+      ))}
+    </div>
+  );
+
+  
+}
