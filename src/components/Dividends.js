@@ -4,6 +4,7 @@ import dividendAlertApiService from "../services/dividendAlertApiService"
 
 export default function Dividends() {
   
+  // TODO use loading component...
   const [isFetching, setIsFetching] = useState(false);
   const [nextDividends, setNextDividends] = useState([]);
 

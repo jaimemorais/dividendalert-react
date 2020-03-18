@@ -8,6 +8,7 @@ import Home from '../components/Home'
 
 import { isAuthenticated } from "./dividendAlertAuthService";
 
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}

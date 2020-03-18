@@ -4,32 +4,27 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { HashRouter } from 'react-router-dom';
 import { LogoutButton } from './LogoutButton'
 import { useSelector } from 'react-redux';
-import userLoggedReducer from '../redux/reducers/userLoggedReducer';
 
 
 export default function DividendAlertMenu() {
 
-
-  const { showLogoutButton } = useSelector(() => {
-    return {
-      showLogoutButton: userLoggedReducer.authenticated
-    };
-  });
-
+  const userLoggedReducer = useSelector(state => state.userLoggedReducer);
     
   return (
     <>                    
       <HashRouter>        
         <Navbar bg="primary" variant="dark" expand="lg">
+          
           <LinkContainer to="/">
             <Navbar.Brand>Dividend Alert</Navbar.Brand>
           </LinkContainer>
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">    
               
-              {!showLogoutButton ? (
+              {!userLoggedReducer.authenticated ? (
                 <LinkContainer to="/login">
                   <Nav.Link>Login</Nav.Link>
                 </LinkContainer>
@@ -44,7 +39,7 @@ export default function DividendAlertMenu() {
                 <Nav.Link>Dividends</Nav.Link>
               </LinkContainer>
               
-              {showLogoutButton ?
+              {userLoggedReducer.authenticated ?
                 (<LogoutButton />) : null
               }
 
