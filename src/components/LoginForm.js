@@ -4,8 +4,8 @@ import dividendAlertApi from '../services/dividendAlertApiService';
 import { loginAuth } from '../services/dividendAlertAuthService';
 import { Form } from './FormStyledComponent';
 import { Container } from './ContainerStyledComponent';
-import { LoginButton } from './LoginButton'
-
+import { useDispatch } from "react-redux";
+import { loginSuccessAction } from '../redux/actions';
 
 export default function LoginForm() {
 
@@ -14,7 +14,7 @@ export default function LoginForm() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const history = useHistory();
-
+  const dispatch = useDispatch();
   
   async function handleSignIn(e) {
     e.preventDefault();
@@ -31,7 +31,8 @@ export default function LoginForm() {
         bodyFormData.set('pwd', password);
         const response = await dividendAlertApi.post(process.env.REACT_APP_DIVIDENDALERT_ENDPOINT_LOGIN, bodyFormData);
         
-        loginAuth(response.data.jwtToken);
+        loginAuth(response.data.jwtToken);        
+        dispatch(loginSuccessAction());        
 
         history.push("/mystocks");
       } catch (err) {
@@ -62,7 +63,9 @@ export default function LoginForm() {
           onChange={e => setPassword(e.target.value)}          
         />
          
-        <LoginButton/> 
+         <button type="submit">
+           Login
+         </button>
         
         <hr />
         <Link to="/signup">Sign Up</Link>
